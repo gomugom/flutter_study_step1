@@ -36,17 +36,48 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   webview_flutter: ^3.0.0
+  #video
+  video_player: ^2.6.1
+  #image picker
+  image_picker: ^0.8.8
+  # google map 기능 제공
+  google_maps_flutter: ^2.1.1
+  # location 계산관련
+  geolocator: ^8.1.1
+  # 모든 권한 설정 관련된걸 할 수 있는 라이브러리(geolocator 위치 권한도 포함)
+  permission_handler: ^10.3.0
+  # 캘린더
+  table_calendar: ^3.0.9
+  # 다국어
+  intl: ^0.18.1
+  # SQLITE ORM(Object Relation Management)
+  drift: ^2.8.2
+  sqlite3_flutter_libs: ^0.5.0
+  path_provider: ^2.0.0
+  path: ^1.8.3
+  # Provider 처럼 상태관리 해주는 라이브러리
+  get_it: ^7.6.0
+  ############### 미세먼지 앱 ###############
+  # HIVE : KEY-VALUE DB 접근용
+  hive: ^2.0.6
+  hive_flutter: ^1.1.0
+  # HTTP 요청용
+  dio: ^4.0.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  # drift 관련
+  drift_dev: ^2.8.3
+  build_runner: ^2.4.5
+  hive_generator: ^1.1.2
+
+
+############ => 양쪽에서 사용하는 패키지가 달라 오류 발생시 override 시키는 기능#############
+#dependency_overrides:
+#  path: ^1.8.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -75,10 +106,31 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: parisienne
+      fonts:
+        - asset: asset/font/Parisienne-Regular.ttf
+
+    - family: sunflower
+      fonts:
+        - asset: asset/font/Sunflower-Light.ttf
+#          weight: 400
+        - asset: asset/font/Sunflower-Medium.ttf
+          weight: 500
+        - asset: asset/font/Sunflower-Bold.ttf
+          weight: 700
+
+    - family: notosans
+      fonts:
+        - asset: asset/font/NotoSansKR-Bold.otf
+          weight: 700
+        - asset: asset/font/NotoSansKR-Medium.otf
+          weight: 500
+        - asset: asset/font/NotoSansKR-Regular.otf
+          weight: 300
+        - asset: asset/font/NotoSansKR-Thin.otf
+          weight: 100
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

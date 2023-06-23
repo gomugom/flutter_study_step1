@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class PageViewTest extends StatefulWidget {
   const PageViewTest({super.key});
@@ -26,8 +27,14 @@ class _PageViewTestState extends State<PageViewTest> {
       int nextPage = currentPage + 1;
 
       if(nextPage > 4) {
-
+        nextPage = 0;
       }
+
+      pageController.animateToPage(
+          nextPage,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.linear
+      );
       print('Timer!');
     });
 
@@ -35,13 +42,21 @@ class _PageViewTestState extends State<PageViewTest> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+
+    pageController.dispose();
+
     if(timer != null) timer!.cancel();
+
     super.dispose();
+
   }
 
   @override
   Widget build(BuildContext context) {
+    
+    // 위 시간, 와이파이, 베터리 색상 지정
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+    
     return Scaffold(
       body: PageView(
         controller: pageController,
